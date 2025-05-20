@@ -3,6 +3,7 @@ import { AuthContext } from '../Context/AuthContext';
 import { Link, NavLink } from 'react-router';
 import { FaMoon } from "react-icons/fa";
 import { FaSun } from "react-icons/fa6";
+import navIcon from "../assets/navicon.avif"
 
 const Navbar = () => {
     const { user, logout } = use(AuthContext);
@@ -69,7 +70,8 @@ const Navbar = () => {
         <div className="navbar bg-base-100  shadow-md">
             <div className="navbar-start">
                 <Link to="/" className="btn btn-ghost normal-case text-xl">
-                    🌿 GardenHub
+                    <img src={navIcon} className='w-16' alt="" />
+                    <span className='text-primary text-2xl font-bold'>GardenHub</span>
                 </Link>
             </div>
 
