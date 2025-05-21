@@ -70,14 +70,6 @@ const Register = () => {
                     })
 
 
-                // console.log(user)
-                //     updateUser({displayName:name, photoURL: photo}).then(()=>{
-                //         setUser({...user,displayName:name, photoURL: photo});
-                //     })
-                //     .catch((error) => {
-                //        console.log(error);
-                //        setUser(user);
-                //       });
 
                 setSuccess(true);
                 navigate("/");

@@ -4,7 +4,7 @@ import Navbar from '../Components/Navbar';
 const ExploreGardeners = () => {
     return (
         <div>
-           
+          
         </div>
     );
 };

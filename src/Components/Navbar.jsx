@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import React, { use } from 'react';
 import { AuthContext } from '../Context/AuthContext';
 import { Link, NavLink } from 'react-router';
 import { FaMoon } from "react-icons/fa";
@@ -7,15 +7,9 @@ import navIcon from "../assets/navicon.avif"
 
 const Navbar = () => {
     const { user, logout } = use(AuthContext);
-    const [theme, setTheme] = useState("light");
+    
 
-    const handleThemeToggle = () => {
-        const newTheme = theme === "light" ? "dark" : "light";
-        setTheme(newTheme);
-        localStorage.setItem("theme", newTheme);
-        document.documentElement.setAttribute("data-theme", newTheme);
-    };
-
+   
     const handleLogout = () => {
         logout()
             .then(() => {
@@ -38,7 +32,7 @@ const Navbar = () => {
                         ? "text-green-500 font-semibold"
                         : "text-gray-600 hover:text-green-500"
                 }
-                to="/explore-gardeners">Explore Gardeners</NavLink></li>
+                to="explore-gardeners">Explore Gardeners</NavLink></li>
             <li><NavLink
                 className={({ isActive }) =>
                     isActive
@@ -67,7 +61,7 @@ const Navbar = () => {
         </>
     );
     return (
-        <div className="navbar bg-base-100  shadow-md">
+        <div className="navbar bg-base-100 border-t-4 border-primary shadow-md">
             <div className="navbar-start">
                 <Link to="/" className="btn btn-ghost normal-case text-xl">
                     <img src={navIcon} className='w-16' alt="" />
@@ -82,9 +76,6 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end space-x-2">
-                <button className="btn btn-ghost" onClick={handleThemeToggle}>
-                    {theme === "light" ? <FaMoon /> : <FaSun />}
-                </button>
 
                 {!user ? (
                     <Link to="/login" className="btn btn-outline btn-sm">Login</Link>
